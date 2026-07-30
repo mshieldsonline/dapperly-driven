@@ -1,0 +1,48 @@
+/* Editor styles — mirrors front-end design tokens for the block editor */
+
+:root {
+  --dd-white:        #FEFEFE;
+  --dd-tint:         #EEF2F8;
+  --dd-navy:         #0F2B5B;
+  --dd-blue:         #4A6FA5;
+  --dd-cream:        #E8D8B0;
+  --dd-text:         #1A2A3A;
+  --dd-muted:        #5A6A7A;
+  --dd-border:       #D8E0EC;
+  --dd-font-serif:   'DM Serif Display', Georgia, serif;
+  --dd-font-sans:    'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--dd-font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--dd-text);
+  max-width: 780px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--dd-font-serif);
+  color: var(--dd-navy);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+a { color: var(--dd-blue); }
+
+blockquote {
+  border-left: 3px solid var(--dd-blue);
+  padding-left: 20px;
+  color: var(--dd-muted);
+  font-style: italic;
+}
+
+.wp-block-button__link {
+  background: var(--dd-navy);
+  color: var(--dd-cream);
+  font-family: var(--dd-font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
