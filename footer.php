@@ -8,7 +8,7 @@
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
 				<?php else : ?>
-					<span style="font-family:var(--dd-font-serif);font-size:18px;color:var(--dd-navy);"><?php bloginfo( 'name' ); ?></span>
+					<img src="<?php echo esc_url( DD_URI . '/assets/images/logos/logo2.fw.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" style="height:48px;width:auto;">
 				<?php endif; ?>
 				<p><?php bloginfo( 'description' ); ?></p>
 			</div>
