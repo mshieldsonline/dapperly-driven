@@ -1,26 +1,16 @@
 ( function () {
 	'use strict';
 
-	// Shrink header on scroll
+	// Add a shadow to the header once the page is scrolled.
+	// The header is position:sticky, so it needs no body-padding compensation.
 	const header = document.getElementById( 'masthead' );
 	if ( header ) {
-		const syncBodyPadding = function () {
-			document.body.style.paddingTop = header.offsetHeight + 'px';
-		};
-
 		const onScroll = function () {
-			if ( window.scrollY > 60 ) {
-				header.classList.add( 'scrolled' );
-			} else {
-				header.classList.remove( 'scrolled' );
-			}
-			syncBodyPadding();
+			header.classList.toggle( 'scrolled', window.scrollY > 60 );
 		};
 
-		header.addEventListener( 'transitionend', syncBodyPadding );
 		window.addEventListener( 'scroll', onScroll, { passive: true } );
-		window.addEventListener( 'resize', syncBodyPadding, { passive: true } );
-		syncBodyPadding();
+		onScroll();
 	}
 
 	// Mobile nav toggle
