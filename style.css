@@ -282,15 +282,49 @@ h1, h2, h3, h4, h5, h6 {
 /* =====================================================
    HERO
    ===================================================== */
+/* Full-bleed hero: the collage sits behind a navy scrim that keeps the
+   left-hand copy legible while the artwork stays visible to the right. */
 .site-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
   min-height: 560px;
-  background: var(--dd-tint);
+  background: var(--dd-navy);
+  overflow: hidden;
+}
+
+.site-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.site-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.site-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgba(15, 43, 91, 0.97) 0%,
+    rgba(15, 43, 91, 0.93) 32%,
+    rgba(15, 43, 91, 0.70) 50%,
+    rgba(15, 43, 91, 0.30) 72%,
+    rgba(15, 43, 91, 0.15) 100%
+  );
 }
 
 .site-hero__content {
-  padding: 80px 60px;
+  padding-block: 80px;
+  max-width: 560px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -303,20 +337,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--dd-blue);
+  color: var(--dd-cream);
 }
 
 .site-hero__heading {
   font-family: var(--dd-font-serif);
   font-size: clamp(36px, 4.5vw, 56px);
   font-weight: 400;
-  color: var(--dd-navy);
+  color: var(--dd-cream);
   line-height: 1.05;
 }
 
 .site-hero__sub {
   font-size: 15px;
-  color: var(--dd-muted);
+  color: rgba(255, 255, 255, 0.82);
   max-width: 400px;
   line-height: 1.7;
 }
@@ -327,29 +361,6 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
-.site-hero__image {
-  background: linear-gradient(135deg, var(--dd-navy) 0%, #1A3F75 50%, var(--dd-blue) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-.site-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.site-hero__image-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  color: rgba(232,216,176,0.3);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 /* =====================================================
    ANNOUNCEMENT STRIP
@@ -1139,9 +1150,18 @@ ul.products li.product .button:hover { opacity: 0.85; }
 }
 
 @media (max-width: 860px) {
-  .site-hero { grid-template-columns: 1fr; }
-  .site-hero__image { display: none; }
-  .site-hero__content { padding: 56px 24px; }
+  /* Narrow screens leave no room for the artwork beside the copy, so the
+     scrim becomes near-uniform and the collage reads as a backdrop. */
+  .site-hero { min-height: 460px; }
+  .site-hero__content { padding-block: 56px; max-width: none; }
+  .site-hero::after {
+    background: linear-gradient(
+      170deg,
+      rgba(15, 43, 91, 0.94) 0%,
+      rgba(15, 43, 91, 0.88) 60%,
+      rgba(15, 43, 91, 0.78) 100%
+    );
+  }
   .dd-cat-grid { grid-template-columns: 1fr; }
   .dd-lifestyle__inner { grid-template-columns: 1fr; }
   .dd-lifestyle__image { display: none; }
@@ -1177,7 +1197,8 @@ ul.products li.product .button:hover { opacity: 0.85; }
   .dd-section { padding-block: 48px; }
   .dd-product-grid { grid-template-columns: 1fr; }
   ul.products { grid-template-columns: 1fr; }
-  .site-hero__content { padding: 40px 20px; }
+  .site-hero { min-height: 400px; }
+  .site-hero__content { padding-block: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

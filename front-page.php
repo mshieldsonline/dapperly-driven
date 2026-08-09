@@ -4,42 +4,37 @@
 
 	<!-- ======= HERO ======= -->
 	<section class="site-hero">
-		<div class="site-hero__content">
-			<p class="site-hero__eyebrow"><?php esc_html_e( 'Automotive Lifestyle', 'dapperly-driven' ); ?></p>
-			<h1 class="site-hero__heading">
-				<?php esc_html_e( 'Wear It.', 'dapperly-driven' ); ?><br>
-				<?php esc_html_e( 'Collect It.', 'dapperly-driven' ); ?><br>
-				<?php esc_html_e( 'Live It.', 'dapperly-driven' ); ?>
-			</h1>
-			<p class="site-hero__sub">
-				<?php esc_html_e( 'Clothing, die-cast models, and collectables for people who are passionate about cars and the culture that comes with them.', 'dapperly-driven' ); ?>
-			</p>
-			<div class="site-hero__actions">
-				<?php if ( class_exists( 'WooCommerce' ) ) : ?>
-					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="btn btn-primary">
-						<?php esc_html_e( 'Shop Now', 'dapperly-driven' ); ?>
-					</a>
-				<?php endif; ?>
-				<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-outline">
-					<?php esc_html_e( 'Our Story', 'dapperly-driven' ); ?>
-				</a>
-			</div>
-		</div>
-		<div class="site-hero__image">
+		<div class="site-hero__bg">
 			<?php
+			// A featured image on the front page overrides the packaged collage.
 			if ( has_post_thumbnail() ) :
 				the_post_thumbnail( 'dd-hero' );
 			else : ?>
-				<div class="site-hero__image-placeholder">
-					<svg width="72" height="72" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.25">
-						<ellipse cx="40" cy="52" rx="30" ry="10" stroke="#E8D8B0" stroke-width="2"/>
-						<path d="M14 52 C14 40 20 32 40 30 C60 32 66 40 66 52" stroke="#E8D8B0" stroke-width="2" fill="none"/>
-						<circle cx="22" cy="52" r="7" stroke="#E8D8B0" stroke-width="2"/>
-						<circle cx="58" cy="52" r="7" stroke="#E8D8B0" stroke-width="2"/>
-					</svg>
-					<span><?php esc_html_e( 'Hero image', 'dapperly-driven' ); ?></span>
-				</div>
+				<img src="<?php echo esc_url( DD_URI . '/assets/images/hero/hero-collage.png' ); ?>" alt="">
 			<?php endif; ?>
+		</div>
+		<div class="dd-container">
+			<div class="site-hero__content">
+				<p class="site-hero__eyebrow"><?php esc_html_e( 'Automotive Lifestyle', 'dapperly-driven' ); ?></p>
+				<h1 class="site-hero__heading">
+					<?php esc_html_e( 'Wear It.', 'dapperly-driven' ); ?><br>
+					<?php esc_html_e( 'Collect It.', 'dapperly-driven' ); ?><br>
+					<?php esc_html_e( 'Live It.', 'dapperly-driven' ); ?>
+				</h1>
+				<p class="site-hero__sub">
+					<?php esc_html_e( 'Clothing, die-cast models, and collectables for people who are passionate about cars and the culture that comes with them.', 'dapperly-driven' ); ?>
+				</p>
+				<div class="site-hero__actions">
+					<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+						<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="btn btn-cream">
+							<?php esc_html_e( 'Shop Now', 'dapperly-driven' ); ?>
+						</a>
+					<?php endif; ?>
+					<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-outline-cream">
+						<?php esc_html_e( 'Our Story', 'dapperly-driven' ); ?>
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 

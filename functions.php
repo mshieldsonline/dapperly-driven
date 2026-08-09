@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-define( 'DD_VERSION', '1.0.2' );
+define( 'DD_VERSION', '1.0.3' );
 define( 'DD_DIR', get_template_directory() );
 define( 'DD_URI', get_template_directory_uri() );
 
