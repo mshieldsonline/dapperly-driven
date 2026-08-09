@@ -1154,7 +1154,7 @@ ul.products li.product .button:hover { opacity: 0.85; }
     display: flex;
     flex-direction: column;
     position: fixed;
-    inset: 68px 0 0;
+    inset: 72px 0 0;
     background: var(--dd-white);
     padding: 24px;
     overflow-y: auto;
@@ -1164,6 +1164,8 @@ ul.products li.product .button:hover { opacity: 0.85; }
   }
   .primary-nav > li > a { padding: 14px 0; font-size: 15px; border-bottom: 1px solid var(--dd-light-border); }
   .nav-toggle { display: flex; }
+  .dd-logo { height: 56px; margin-top: 4px; }
+  .site-header__inner { height: 72px; }
   .dd-strip { gap: 24px; font-size: 10px; }
   .dd-strip span:first-child, .dd-strip span:last-child { display: none; }
   .dd-product-grid { grid-template-columns: repeat(2, 1fr); }
