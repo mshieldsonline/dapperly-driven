@@ -181,8 +181,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Logo */
-.site-branding { flex-shrink: 0; text-decoration: none; display: flex; align-items: center; }
-.dd-logo { height: 88px; width: auto; display: block; margin-top: 8px; }
+.site-branding { flex-shrink: 0; text-decoration: none; display: flex; align-items: center; height: 100%; }
+.dd-logo { height: 72px; width: auto; display: block; margin: auto 0; }
 
 /* Primary nav */
 .primary-nav {
@@ -1164,7 +1164,7 @@ ul.products li.product .button:hover { opacity: 0.85; }
   }
   .primary-nav > li > a { padding: 14px 0; font-size: 15px; border-bottom: 1px solid var(--dd-light-border); }
   .nav-toggle { display: flex; }
-  .dd-logo { height: 56px; margin-top: 4px; }
+  .dd-logo { height: 48px; }
   .site-header__inner { height: 72px; }
   .dd-strip { gap: 24px; font-size: 10px; }
   .dd-strip span:first-child, .dd-strip span:last-child { display: none; }
