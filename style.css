@@ -177,12 +177,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 68px;
+  height: 90px;
 }
 
 /* Logo */
-.site-branding { flex-shrink: 0; text-decoration: none; }
-.dd-logo { height: 44px; width: auto; }
+.site-branding { flex-shrink: 0; text-decoration: none; display: flex; align-items: center; }
+.dd-logo { height: 70px; width: auto; display: block; }
 
 /* Primary nav */
 .primary-nav {
