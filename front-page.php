@@ -10,7 +10,7 @@
 			if ( has_post_thumbnail() ) :
 				the_post_thumbnail( 'dd-hero' );
 			else : ?>
-				<img src="<?php echo esc_url( DD_URI . '/assets/images/hero/hero-collage.png' ); ?>" alt="">
+				<img src="<?php echo esc_url( DD_URI . '/assets/images/hero/hero-collage.jpg' ); ?>" alt="" width="1424" height="612" fetchpriority="high">
 			<?php endif; ?>
 		</div>
 		<div class="dd-container">
