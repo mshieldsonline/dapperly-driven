@@ -1,0 +1,25 @@
+name: Lint theme
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:  # allows manual trigger from the Actions tab
+
+jobs:
+  php-syntax:
+    name: PHP syntax check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show PHP version
+        run: php --version
+
+      # WP Pusher deploys on GitHub's push webhook, which fires whether or
+      # not this job passes. A red tick here therefore warns that the live
+      # site is broken; it does not prevent the broken code reaching it.
+      - name: Check every PHP file for syntax errors
+        run: find . -name '*.php' -print0 | xargs -0 -n1 php -l
